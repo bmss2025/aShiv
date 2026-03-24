@@ -176,7 +176,7 @@ input[type="text"]:focus {
 	font-weight: bold;
 	cursor: pointer;
 	}
-	
+
 .save-btn { 
     background: #38a169; 
     color: white; 
@@ -218,18 +218,6 @@ input[type="text"]:focus {
     margin: 10px 0;
 }
 
-.slider-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 10px 0;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-}
-
-.slider-container::-webkit-scrollbar { display: none; }
-
 .card {
     flex: 0 0 calc((100% - 12px) / 2);
     scroll-snap-align: start;
@@ -245,6 +233,7 @@ input[type="text"]:focus {
 }
 
 #archiveSlider {
+    min-height: 180px;
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -252,6 +241,18 @@ input[type="text"]:focus {
     padding: 10px 0;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+}
+
+#archiveSlider:empty::before {
+    border: 2px dashed #e2e8f0;
+    border-radius: 10px;
+    content: "No items yet";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #a0aec0;
+    font-size: 0.9rem;
 }
 
 #archiveSlider::-webkit-scrollbar {
