@@ -9,35 +9,52 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div class="app-container">
-        <h2>BhoomiTech Pictorious</h2>
 
+    <div class="top-accordion">
+      <div class="accordion-header" id="accordionToggle" tabindex="0">
+        <h1>BhoomiTech Pictorious</h1>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div class="accordion-body" id="accordionBody">
         <div class="data-controls">
           <button id="downloadBtn" class="util-btn">Save List</button>
-          <label class="util-btn">Load from Disk<input type="file" id="restoreInput" accept=".json" style="display:none;"></label>
+          <label class="util-btn">
+            Load from Disk
+            <input type="file" id="restoreInput" accept=".json" hidden>
+          </label>
           <button id="clearDbBtn" class="util-btn danger">Clean Browser Data</button>
         </div>
+      </div>
+    </div>
 
+    <div class="app-container">
         <div class="slider-wrapper">
           <button id="prevBtn" class="nav-btn prev">❮</button>
           <div id="archiveSlider" class="slider-container"></div>
           <button id="nextBtn" class="nav-btn next">❯</button>
         </div>
-
-        <section class="creator-card">
-		  <div class="control-group">
-            <input type="file" id="imageInput" accept="image/*">
-            <button id="captureAction" class="primary-btn">Speak to Transliterate</button>
+		<div class="bottom-accordion">
+          <div class="accordion-header" id="accordionNewItem">
+            <h4>Add New Item</h4>
+            <i class="fa-solid fa-chevron-down"></i>
           </div>
-            <div id="previewContainer"></div>		  
-          <div class="control-group">  
-            <input type="text" id="heritageInput" placeholder="Heritage">
-            <input type="text" id="transInput" placeholder="Roman">
-          </div>  
-            <button id="saveCard" class="save-btn">Add to Slider</button>
-        </section>
-
+          <div class="accordion-section" id="accordionItem">
+			<section class="creator-card">
+		      <div class="control-group">
+                <input type="file" id="imageInput" accept="image/*">
+                <button id="captureAction" class="primary-btn">Speak to Transliterate</button>
+              </div>
+              <div id="previewContainer"></div>		  
+                <div class="control-group">  
+                  <input type="text" id="heritageInput" placeholder="Heritage">
+                  <input type="text" id="transInput" placeholder="Roman">
+                </div>  
+                <button id="saveCard" class="save-btn">Add to Slider</button>
+            </section>
+          </div>
+        </div>
     </div>
+	
 	<script type="module" src="script.js"></script>
 </body>
 </html>
