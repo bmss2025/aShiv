@@ -108,8 +108,13 @@ body {
 .control-group {
     display: flex;
     gap: 6px;
-    align-items: stretch;
     margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+
+.control-group > * {
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 #imageInput, #captureAction {
