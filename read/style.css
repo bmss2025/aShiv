@@ -5,23 +5,96 @@
 }
 
 body { 
+    overflow-x: hidden;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-    background: #f7fafc; 
-    padding: 20px; 
+    background: #f7fafc;  
     color: #2d3748;
     line-height: 1.5;
 }
 
-.app-container { 
-    max-width: 600px;
-    margin: 0 auto; 
+/* --- TOP ACCORDION --- */
+.top-accordion {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 10px;
+    z-index: 10;
 }
 
-h2 { 
-    text-align: center; 
-    color: #4a5568; 
-    margin-bottom: 10px;
-    font-size: 1.6rem;
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    background: #4a5568;
+    color: white;
+}
+
+.accordion-header h1 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.accordion-header i {
+    transition: transform 0.3s ease;
+}
+
+.accordion-body {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    background: #f7fafc;
+    padding: 0 15px;
+}
+
+.top-accordion.active .accordion-header i {
+    transform: rotate(180deg);
+}
+
+/* --- APP CONTAINER --- */
+.app-container { 
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 6px 20px;	
+}
+
+/* --- BOTTOM ACCORDION --- */
+.bottom-accordion {
+    background: white;
+    border-radius: 12px;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.bottom-accordion .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+    background: #4a5568;
+    color: white;
+    border-radius: 12px;
+}
+
+.bottom-accordion .accordion-header h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.accordion-section {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
+}
+
+.bottom-accordion.active .accordion-header i {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
 }
 
 .creator-card { 
@@ -211,7 +284,6 @@ input[type="text"]:focus {
     justify-content: center;
 }
 
-/* --- 6. Navigation & Utilities --- */
 .nav-btn {
     position: absolute;
     top: 50%;
@@ -259,42 +331,24 @@ input[type="text"]:focus {
 }
 .delete-btn:hover { color: #e53e3e; }
 
-.data-controls { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr; 
-    gap: 8px; 
-    margin-top: 20px; 
+.data-controls {
+    display: flex;
 }
 
-.util-btn { 
-    background: #4a5568; 
-    color: white; 
-    padding: 6px 10px;
-    border-radius: 8px; 
-    border: none; 
-    cursor: pointer; 
-    text-align: center; 
+.util-btn {
+    flex: 1;
+	margin: 10px;
+    background: #4a5568;
+    color: white;
+    padding: 6px 6px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
     font-size: 0.75rem;
     font-weight: 600;
-    
-    /* --- ADD THESE THREE LINES --- */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    min-height: 40px;
-    width: 100%; /* Ensures the label fills its grid cell */
-    box-sizing: border-box;
+    text-align: center;
 }
 
-.util-btn:hover { 
-    background: #2d3748; 
-}
-
-/* Ensure the red button stays centered too */
 .util-btn.danger {
     background: #e53e3e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
