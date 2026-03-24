@@ -60,7 +60,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const heritageInput = document.getElementById('heritageInput');
     const transInput = document.getElementById('transInput');
     const imageInput = document.getElementById('imageInput');
+	
+	const accordionToggle = document.getElementById('accordionToggle');
+    const accordion = document.querySelector('.top-accordion');
+    const accordionBody = document.getElementById('accordionBody');
+		
+	const accNewItem = document.getElementById('accordionNewItem');
+    const accSection = document.getElementById('accordionItem');
+    const bottomAccordion = document.querySelector('.bottom-accordion');
 
+        if (accordionToggle && accordionBody) {
+        accordionToggle.onclick = () => {
+            if (accordion.classList.contains('active')) {
+                // CLOSE smoothly
+                accordionBody.style.height = accordionBody.scrollHeight + 'px';
+                requestAnimationFrame(() => {
+                    accordionBody.style.height = '0px';
+                });
+                accordion.classList.remove('active');
+            } else {
+                // OPEN smoothly
+                accordionBody.style.height = accordionBody.scrollHeight + 'px';
+                accordion.classList.add('active');
+
+                // After animation, reset to auto
+                accordionBody.addEventListener('transitionend', function handler() {
+                    accordionBody.style.height = 'auto';
+                    accordionBody.removeEventListener('transitionend', handler);
+                });
+            }
+        };
+    }
+	
+	    if (accNewItem && accSection) {
+        accNewItem.onclick = () => {
+            if (bottomAccordion.classList.contains('active')) {
+
+                accSection.style.height = accSection.scrollHeight + 'px';
+                requestAnimationFrame(() => {
+                    accSection.style.height = '0px';
+                });
+                bottomAccordion.classList.remove('active');
+            } else {
+
+                accSection.style.height = accSection.scrollHeight + 'px';
+                bottomAccordion.classList.add('active');
+
+                accSection.addEventListener('transitionend', function handler() {
+                    accSection.style.height = 'auto';
+                    accSection.removeEventListener('transitionend', handler);
+                });
+            }
+        };
+    }
+	
     const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
     
     if (SpeechRecognition && captureBtn) {
