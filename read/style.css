@@ -165,6 +165,10 @@ input[type="text"]:focus {
 }
 
 .primary-btn {
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	background: #4a90e2;
 	color: white;
 	border: none;
