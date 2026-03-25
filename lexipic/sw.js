@@ -7,6 +7,8 @@ const ASSETS = [
   '/aShiv/lexipic/script.js',
   '/aShiv/lexipic/database.js',
   '/aShiv/lexipic/favicon.ico',
+  '/aShiv/lexipic/icon-192.png',
+  '/aShiv/lexipic/icon-512.png',
   '/aShiv/lexipic/modules/ime/reverse.js',
   '/aShiv/lexipic/modules/ime/reverseMap.js',
   '/aShiv/lexipic/modules/ime/utils.js'
