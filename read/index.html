@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Language Archive</title>
+	<link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js', { scope: './' })
+          .then(reg => console.log('SW registered!', reg))
+          .catch(err => console.log('SW registration failed:', err));
+        });
+    }
+</script>
 </head>
-<body>
 
+<body>
     <div class="top-accordion">
       <div class="accordion-header" id="accordionToggle" tabindex="0">
         <h1>Lexopic</h1>
